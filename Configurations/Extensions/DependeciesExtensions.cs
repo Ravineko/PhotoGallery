@@ -1,5 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PhotoGallery.Data;
+using PhotoGallery.Repositories;
+using PhotoGallery.Repositories.Interfaces;
+using PhotoGallery.Services;
+using PhotoGallery.Services.Interfaces;
 
 namespace PhotoGallery.Configurations.Extensions;
 
@@ -11,6 +15,13 @@ public static class DependeciesExtensions
     {
         services.AddDbContext<GalleryDbContext>(options =>
             options.UseSqlServer(connectionString));
+
+        services.AddScoped<IPhotoRepository, PhotoRepository>();
+        /*        services.AddScoped<IUserRepository, UserRepository>();*/
+        services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+
+        services.AddScoped<IPhotoService, PhotoService>();
+        services.AddScoped<ITokenService, TokenService>();
 
         return services;
     }

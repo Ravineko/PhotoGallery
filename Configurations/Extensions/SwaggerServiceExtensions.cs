@@ -38,8 +38,8 @@ public static class SwaggerServiceExtensions
 
             options.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "KickOffNews",
-                Description = "API to manage Football News",
+                Title = "PhotoGallery",
+                Description = "API to manage Photo Gallery",
             });
         });
 
