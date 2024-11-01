@@ -10,7 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 builder.Configuration.AddUserSecrets<Program>();
 
-builder.Services.Configure<JWTSettings>(configuration.GetRequiredSection(ConfigurationConstants.JWTSettingsSection));
+builder.Services.Configure<JWTSettings>(
+    configuration.GetRequiredSection(ConfigurationConstants.JWTSettingsSection));
+builder.Services.Configure<ImageSettings>(
+    configuration.GetRequiredSection(ConfigurationConstants.ImageSettingsSection));
 
 builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation();
