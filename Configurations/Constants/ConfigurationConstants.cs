@@ -3,4 +3,5 @@ public static class ConfigurationConstants
 {
     public const string JWTSettingsSection = "JWTSettings";
     public const string ImageSettingsSection = "ImageSettings";
+    public const string CodeExpirySettingsSection = "CodeSettings";
 }

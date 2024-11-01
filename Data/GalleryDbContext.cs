@@ -20,6 +20,18 @@ public class GalleryDbContext : DbContext
             .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<Album>()
+            .HasOne(a => a.User)
+            .WithMany(u => u.Albums)
+            .HasForeignKey(a => a.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Photo>()
+            .HasOne(p => p.User)
+            .WithMany(u => u.Photos)
+            .HasForeignKey(p => p.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Album>()
             .HasMany(a => a.Photos)
             .WithMany(p => p.Albums)
             .UsingEntity<Dictionary<string, object>>(
@@ -34,10 +46,17 @@ public class GalleryDbContext : DbContext
                     .WithMany()
                     .HasForeignKey("AlbumId")
                     .OnDelete(DeleteBehavior.Cascade));
+
+        modelBuilder.Entity<RefreshToken>()
+               .HasOne(rt => rt.User)
+               .WithMany(u => u.RefreshTokens)
+               .HasForeignKey(rt => rt.UserId)
+               .OnDelete(DeleteBehavior.Cascade);
     }
 
     public DbSet<User> Users { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<Album> Albums { get; set; }
     public DbSet<Photo> Photos { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 }

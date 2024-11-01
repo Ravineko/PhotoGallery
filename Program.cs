@@ -14,6 +14,8 @@ builder.Services.Configure<JWTSettings>(
     configuration.GetRequiredSection(ConfigurationConstants.JWTSettingsSection));
 builder.Services.Configure<ImageSettings>(
     configuration.GetRequiredSection(ConfigurationConstants.ImageSettingsSection));
+builder.Services.Configure<CodesExpirySettings>(
+    configuration.GetRequiredSection(ConfigurationConstants.CodeExpirySettingsSection));
 
 builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation();
