@@ -14,6 +14,7 @@ public class MappingConfig : Profile
         CreateMap<RefreshTokenVM, RefreshTokenServiceDTO>();
 
         CreateMap<Photo, PhotoDTO>();
+        CreateMap<AlbumDto, Album>();
         CreateMap<UserServiceDTO, User>().ReverseMap();
     }
 }

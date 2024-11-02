@@ -6,4 +6,5 @@ public interface IPhotoRepository
 {
     Task AddPhotoAsync(Photo photo);
     Task<List<Photo>> GetAllAsync();
+    Task<Photo> GetPhotoByIdAsync(int id);
 }

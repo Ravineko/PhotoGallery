@@ -8,4 +8,5 @@ public interface IAlbumRepository
     Task<IEnumerable<Album>> GetAllAlbumsAsync();
     Task<Album> GetAlbumByIdAsync(int id);
     Task<IEnumerable<Photo>> GetPhotosByAlbumIdAsync(int albumId);
+    Task SetCoverPathAsync(int albumId, string coverPath);
 }

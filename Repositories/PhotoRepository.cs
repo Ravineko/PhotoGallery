@@ -24,4 +24,10 @@ public sealed class PhotoRepository : IPhotoRepository
         var photos = await _context.Photos.ToListAsync();
         return photos;
     }
+
+    public async Task<Photo> GetPhotoByIdAsync(int id)
+    {
+        var photo = await _context.Photos.SingleOrDefaultAsync(p => p.Id == id);
+        return photo;
+    }
 }

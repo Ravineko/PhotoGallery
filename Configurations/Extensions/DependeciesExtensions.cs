@@ -24,11 +24,13 @@ public static class DependeciesExtensions
         services.AddScoped<IPromotionCodeRepository, PromotionCodeRepository>();
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<ITwoFactorAuthCodeRepository, TwoFactorAuthCodeRepository>();
+        services.AddScoped<IAlbumRepository, AlbumRepository>();
 
         services.AddScoped<IPhotoService, PhotoService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IPromotionCodeService, PromotionCodeService>();
+        services.AddScoped<IAlbumService, AlbumService>();
 
         services.AddScoped<IEmailService, EmailService>();
 
