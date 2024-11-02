@@ -4,7 +4,7 @@ using PhotoGallery.Configurations;
 using PhotoGallery.Configurations.Constants;
 using PhotoGallery.Enums;
 using PhotoGallery.ExternalServices.Interfaces;
-using PhotoGallery.Models.RepositoryDTOs;
+using PhotoGallery.Models.Entities;
 using PhotoGallery.Models.ServiceDTOs;
 using PhotoGallery.Models.ServiceDTOs.ResponseDTOs;
 using PhotoGallery.Repositories.Interfaces;

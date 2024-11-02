@@ -35,4 +35,11 @@ public class PhotoController : BaseController
         await _photoService.DislikePhotoAsync(id);
         return Ok();
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllPhotos()
+    {
+        var photos = await _photoService.GetAllPhotos();
+        return Ok(photos);
+    }
 }

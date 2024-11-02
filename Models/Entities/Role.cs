@@ -1,4 +1,4 @@
-﻿namespace PhotoGallery.Models.RepositoryDTOs;
+﻿namespace PhotoGallery.Models.Entities;
 
 public sealed class Role
 {

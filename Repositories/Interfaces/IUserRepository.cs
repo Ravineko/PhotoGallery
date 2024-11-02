@@ -1,4 +1,4 @@
-﻿using PhotoGallery.Models.RepositoryDTOs;
+﻿using PhotoGallery.Models.Entities;
 
 namespace PhotoGallery.Repositories.Interfaces;
 

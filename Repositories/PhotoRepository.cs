@@ -1,5 +1,6 @@
-﻿using PhotoGallery.Data;
-using PhotoGallery.Models.RepositoryDTOs;
+﻿using Microsoft.EntityFrameworkCore;
+using PhotoGallery.Data;
+using PhotoGallery.Models.Entities;
 using PhotoGallery.Repositories.Interfaces;
 
 namespace PhotoGallery.Repositories;
@@ -16,5 +17,11 @@ public sealed class PhotoRepository : IPhotoRepository
     {
         await _context.Photos.AddAsync(photo);
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<List<Photo>> GetAllAsync()
+    {
+        var photos = await _context.Photos.ToListAsync();
+        return photos;
     }
 }

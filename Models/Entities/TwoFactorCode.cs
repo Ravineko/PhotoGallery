@@ -1,13 +1,12 @@
-﻿namespace PhotoGallery.Models.RepositoryDTOs;
+﻿namespace PhotoGallery.Models.Entities;
 
-public sealed class PromotionCode
+public sealed class TwoFactorCode
 {
     public int Id { get; set; }
     public string Code { get; set; }
-    public string Name { get; set; }
     public DateTime ExpiryDate { get; set; }
     public bool IsUsed { get; set; }
-
     public int UserId { get; set; }
     public User User { get; set; }
+
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PhotoGallery.Data;
-using PhotoGallery.Models.RepositoryDTOs;
+using PhotoGallery.Models.Entities;
 using PhotoGallery.Repositories.Interfaces;
 
 namespace PhotoGallery.Repositories;

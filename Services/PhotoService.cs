@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Options;
+﻿using AutoMapper;
+using Microsoft.Extensions.Options;
 using PhotoGallery.Configurations;
-using PhotoGallery.Models.RepositoryDTOs;
+using PhotoGallery.Models.Entities;
+using PhotoGallery.Models.ServiceDTOs;
 using PhotoGallery.Repositories.Interfaces;
 using PhotoGallery.Services.Interfaces;
 
@@ -10,17 +12,26 @@ public sealed class PhotoService : IPhotoService
 {
     private readonly ImageSettings _settings;
     private readonly IPhotoRepository _photoRepository;
+    private readonly IMapper _mapper;
 
     public PhotoService(
         IOptions<ImageSettings> options,
-        IPhotoRepository photoRepository)
+        IPhotoRepository photoRepository,
+        IMapper mapper)
     {
         _settings = options.Value;
         _photoRepository = photoRepository;
+        _mapper = mapper;
     }
     public Task DislikePhotoAsync(int id)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<List<PhotoDTO>> GetAllPhotos()
+    {
+        var photos = await _photoRepository.GetAllAsync();
+        return _mapper.Map<List<PhotoDTO>>(photos);
     }
 
     public Task LikePhotoAsync(int id)
@@ -48,8 +59,6 @@ public sealed class PhotoService : IPhotoService
 
         var photo = new Photo
         {
-            /*            Title = file.FileName,
-                        AlbumId = albumId,*/
             UserId = userId,
             FilePath = $"/images/{file.FileName}"
         };

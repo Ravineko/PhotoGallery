@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using PhotoGallery.Models.RepositoryDTOs;
+using PhotoGallery.Models.Entities;
 using PhotoGallery.Models.ServiceDTOs;
 using PhotoGallery.Models.VMs;
 
@@ -13,6 +13,7 @@ public class MappingConfig : Profile
         CreateMap<LoginVM, UserServiceDTO>();
         CreateMap<RefreshTokenVM, RefreshTokenServiceDTO>();
 
+        CreateMap<Photo, PhotoDTO>();
         CreateMap<UserServiceDTO, User>().ReverseMap();
     }
 }

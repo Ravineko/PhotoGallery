@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PhotoGallery.Models.RepositoryDTOs;
+using PhotoGallery.Models.Entities;
 
 namespace PhotoGallery.Data;
 
