@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PhotoGallery.Services.Interfaces;
 
 namespace PhotoGallery.Controllers;
 
 [Route("api/photos")]
-public class PhotoController : ControllerBase
+public class PhotoController : BaseController
 {
     private readonly IPhotoService _photoService;
 
@@ -13,10 +14,11 @@ public class PhotoController : ControllerBase
         _photoService = photoService;
     }
 
+    [Authorize]
     [HttpPost("upload")]
     public async Task<IActionResult> UploadPhoto(IFormFile file)
     {
-        var photoUrl = await _photoService.UploadPhotoAsync(file);
+        var photoUrl = await _photoService.UploadPhotoAsync(file, UserId.Value);
         return Ok(new { photoUrl });
     }
 
