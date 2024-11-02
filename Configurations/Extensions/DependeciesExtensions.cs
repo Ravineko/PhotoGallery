@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PhotoGallery.Data;
+using PhotoGallery.ExternalServices;
+using PhotoGallery.ExternalServices.Interfaces;
 using PhotoGallery.Repositories;
 using PhotoGallery.Repositories.Interfaces;
 using PhotoGallery.Services;
@@ -17,11 +19,18 @@ public static class DependeciesExtensions
             options.UseSqlServer(connectionString));
 
         services.AddScoped<IPhotoRepository, PhotoRepository>();
-        /*        services.AddScoped<IUserRepository, UserRepository>();*/
+        services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+        services.AddScoped<IPromotionCodeRepository, PromotionCodeRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
+        services.AddScoped<ITwoFactorAuthCodeRepository, TwoFactorAuthCodeRepository>();
 
         services.AddScoped<IPhotoService, PhotoService>();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IPromotionCodeService, PromotionCodeService>();
+
+        services.AddScoped<IEmailService, EmailService>();
 
         return services;
     }
