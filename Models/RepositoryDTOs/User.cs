@@ -12,4 +12,6 @@ public sealed class User
     public ICollection<Album> Albums { get; set; }
     public ICollection<Photo> Photos { get; set; }
     public ICollection<RefreshToken> RefreshTokens { get; set; }
+    public ICollection<TwoFactorCode> TwoFactorCodes { get; set; }
+    public ICollection<PromotionCode> PromotionCodes { get; set; }
 }
