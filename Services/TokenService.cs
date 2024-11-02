@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using PhotoGallery.Configurations;
 using PhotoGallery.Enums;
 using PhotoGallery.Models.ServiceDTOs;
+using PhotoGallery.Models.ServiceDTOs.ResponseDTOs;
 using PhotoGallery.Repositories.Interfaces;
 using PhotoGallery.Services.Interfaces;
 using System.IdentityModel.Tokens.Jwt;

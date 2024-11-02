@@ -2,7 +2,7 @@
 
 public interface IPhotoService
 {
-    Task<string> UploadPhotoAsync(IFormFile file);
+    Task<string> UploadPhotoAsync(IFormFile file, int userId);
     Task LikePhotoAsync(int id);
     Task DislikePhotoAsync(int id);
 

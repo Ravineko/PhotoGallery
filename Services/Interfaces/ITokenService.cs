@@ -1,5 +1,6 @@
 ﻿using PhotoGallery.Enums;
 using PhotoGallery.Models.ServiceDTOs;
+using PhotoGallery.Models.ServiceDTOs.ResponseDTOs;
 using System.Security.Claims;
 
 namespace PhotoGallery.Services.Interfaces;

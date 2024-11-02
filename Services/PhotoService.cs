@@ -28,7 +28,7 @@ public sealed class PhotoService : IPhotoService
         throw new NotImplementedException();
     }
 
-    public async Task<string> UploadPhotoAsync(IFormFile file)
+    public async Task<string> UploadPhotoAsync(IFormFile file, int userId)
     {
         if (file == null || file.Length == 0)
         {
@@ -50,6 +50,7 @@ public sealed class PhotoService : IPhotoService
         {
             /*            Title = file.FileName,
                         AlbumId = albumId,*/
+            UserId = userId,
             FilePath = $"/images/{file.FileName}"
         };
 
