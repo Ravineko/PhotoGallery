@@ -1,0 +1,23 @@
+<div [formGroup]="formGroup">
+  <div [class]="inputClass">
+    <label [for]="label">{{ label }}</label>
+    @if(!isTextarea){
+    <input
+      [id]="controlName"
+      [type]="inputType"
+      [formControlName]="controlName"
+      class="form-control"
+    />
+    } @else{
+    <textarea
+      [id]="controlName"
+      [formControlName]="controlName"
+      class="form-control"
+    ></textarea>
+    } @if(showError){
+    <div class="error-message">
+      {{ getErrorMessage() }}
+    </div>
+    }
+  </div>
+</div>

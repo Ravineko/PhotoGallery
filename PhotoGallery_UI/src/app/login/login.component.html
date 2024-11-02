@@ -1,0 +1,31 @@
+<div class="login-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()" class="login-form">
+    <app-form-control
+      label="Email"
+      [formGroup]="loginForm"
+      inputType="email"
+      controlName="Email"
+      inputClass="auth-group"
+      [errorMessages]="emailErrorMessages"
+    >
+    </app-form-control>
+    <app-form-control
+      label="Password"
+      [formGroup]="loginForm"
+      inputType="password"
+      controlName="password"
+      inputClass="auth-group"
+      [errorMessages]="passwordErrorMessages"
+    >
+    </app-form-control>
+
+    <app-button label="Login" type="submit" buttonClass="submit-button">
+    </app-button>
+    <div class="reset-password">
+      <a [routerLink]="['/sign-up']" class="reset-link">
+        Not yet registered?
+      </a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,8 @@
+<div class="album-grid">
+  @for(album of albums; track album.id){
+  <div class="album-item">
+    <img [src]="album.coverUrl" [alt]="album.title" />
+    <h3>{{ album.title }}</h3>
+  </div>
+  }
+</div>

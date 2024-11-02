@@ -1,0 +1,36 @@
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--dark-blue);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control:focus,
+.auth-group:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.error-message {
+  color: #d9534f;
+  font-size: 12px;
+  background-color: #f8d7da;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.auth-group {
+  margin-bottom: 15px;
+}
+
+.auth-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}

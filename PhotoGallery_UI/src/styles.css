@@ -1,1 +1,151 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #00466a;
+  --secondary-color: #ffffff;
+  --light-blue: #e8f0fe;
+  --dark-blue: #002b45;
+  --third-main: #80acc2;
+
+  --primary-light: #0071a0;
+  --primary-dark: #00384d;
+
+  --secondary-light: #f5f5f5;
+  --secondary-dark: #e0e0e0;
+
+  --light-blue-dark: #c4d9f0;
+  --light-blue-light: #f4f8fc;
+
+  --dark-blue-light: #004085;
+  --dark-blue-dark: #001c36;
+
+  --accent-orange: #f57c00;
+  --accent-red: #ff4757;
+  --accent-golden: #fbc02d;
+
+  --neutral-light: #b0bec5;
+  --neutral-dark: #37474f;
+
+  --green-color: #4caf50;
+  --red-color: #f44336;
+  --yellow-color: #ffeb3b;
+}
+body {
+  background-color: var(--third-main);
+  padding-top: 6rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.15rem;
+  text-align: left;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.success-message,
+.error-message {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.toast-success {
+  background-color: #5cb85c !important;
+}
+
+.toast-error {
+  background-color: #ef7f7b !important;
+}
+
+.toast-info {
+  background-color: #5bc0de !important;
+}
+
+.toast-warning {
+  background-color: #f0ad4e !important;
+}
+
+.toast-top-center {
+  top: 30pt !important;
+}
+
+.toast-container .ngx-toastr {
+  border-radius: 8px !important;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 10px 15px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+}
+
+.pagination-button:disabled {
+  background-color: var(--neutral-light);
+  cursor: not-allowed;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.pagination-info {
+  font-size: 16px;
+  color: var(--neutral-dark);
+}

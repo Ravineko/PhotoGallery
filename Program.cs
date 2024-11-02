@@ -16,6 +16,8 @@ builder.Services.Configure<ImageSettings>(
     configuration.GetRequiredSection(ConfigurationConstants.ImageSettingsSection));
 builder.Services.Configure<CodesExpirySettings>(
     configuration.GetRequiredSection(ConfigurationConstants.CodeExpirySettingsSection));
+builder.Services.Configure<EmailSettings>(
+    configuration.GetRequiredSection(ConfigurationConstants.EmailSettingsSection));
 
 builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation();
@@ -29,6 +31,8 @@ var connectionString = connectionSection["DefaultConnection"];
 
 builder.Services.AddAutoMapper(typeof(MappingConfig));
 builder.Services.AddCustomSwagger();
+var secretKey = builder.Configuration["JWTSettings:SecretKey"];
+builder.Services.AddCustomJwtAuthentication(secretKey);
 builder.Services.AddDependecies(connectionString);
 
 builder.Services.AddCors(options =>

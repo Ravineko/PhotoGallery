@@ -1,0 +1,52 @@
+<div class="register-container">
+  <h2>SignUp</h2>
+
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="handleSubmit()"
+    class="register-form"
+  >
+    <app-form-control
+      label="userName"
+      [formGroup]="registerForm"
+      inputType="text"
+      controlName="userName"
+      [errorMessages]="userNameErrorMessages"
+      inputClass="auth-group"
+    >
+    </app-form-control>
+
+    <app-form-control
+      label="Email"
+      [formGroup]="registerForm"
+      inputType="email"
+      controlName="email"
+      [errorMessages]="emailErrorMessages"
+      inputClass="auth-group"
+    >
+    </app-form-control>
+
+    <app-form-control
+      label="Password"
+      [formGroup]="registerForm"
+      inputType="password"
+      controlName="password"
+      [errorMessages]="passwordErrorMessages"
+      inputClass="auth-group"
+    >
+    </app-form-control>
+
+    <app-form-control
+      label="ConfirmPassword"
+      [formGroup]="registerForm"
+      inputType="password"
+      controlName="confirmPassword"
+      [errorMessages]="confirmPasswordErrorMessages"
+      inputClass="auth-group"
+    >
+    </app-form-control>
+
+    <app-button label="SignUp" type="submit" buttonClass="submit-button">
+    </app-button>
+  </form>
+</div>

@@ -1,4 +1,4 @@
-@PhotoGallery_HostAddress = http://localhost:5269
+@PhotoGallery_HostAddress = http://localhost:8001
 
 GET {{PhotoGallery_HostAddress}}/weatherforecast/
 Accept: application/json

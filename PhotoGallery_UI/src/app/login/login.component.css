@@ -1,0 +1,35 @@
+.login-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 2rem;
+    background-color: var(--dark-blue);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--secondary-color);
+  }
+  
+  .login-form {
+    margin-top: 20px;
+  }
+  
+  .reset-link {
+    margin: 1rem;
+    color: gray;
+    text-decoration: none;
+  }
+  
+  .reset-password {
+    margin-top: 1rem;
+  }
+  
+  .reset-link:hover {
+    text-decoration: underline;
+  }
+  

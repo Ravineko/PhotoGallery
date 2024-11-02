@@ -1,0 +1,30 @@
+<nav class="navbar">
+  <ul class="nav-links">
+    <li>
+      <a [routerLinkActive]="['link-active']" [routerLink]="['/albums']"
+        >Albums</a
+      >
+    </li>
+    @if(isLoggedIn()){
+    <li>
+      <a [routerLinkActive]="['link-active']" [routerLink]="['/my-albums']"
+        >My albums</a
+      >
+    </li>
+    }
+  </ul>
+
+  <div class="user-actions">
+    @if(!isLoggedIn()){
+    <div class="auth-buttons">
+      <button [routerLinkActive]="['link-active']" [routerLink]="['/login']">
+        LOGIN
+      </button>
+    </div>
+    } @else{
+    <div class="auth-buttons">
+      <button (click)="logout()">Logout</button>
+    </div>
+    }
+  </div>
+</nav>
