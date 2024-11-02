@@ -48,10 +48,22 @@ public class GalleryDbContext : DbContext
                     .OnDelete(DeleteBehavior.Cascade));
 
         modelBuilder.Entity<RefreshToken>()
-               .HasOne(rt => rt.User)
-               .WithMany(u => u.RefreshTokens)
-               .HasForeignKey(rt => rt.UserId)
-               .OnDelete(DeleteBehavior.Cascade);
+            .HasOne(rt => rt.User)
+            .WithMany(u => u.RefreshTokens)
+            .HasForeignKey(rt => rt.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<TwoFactorCode>()
+            .HasOne(tf => tf.User)
+            .WithMany(u => u.TwoFactorCodes)
+            .HasForeignKey(tf => tf.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<PromotionCode>()
+            .HasOne(tf => tf.User)
+            .WithMany(u => u.PromotionCodes)
+            .HasForeignKey(tf => tf.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 
     public DbSet<User> Users { get; set; }
@@ -59,4 +71,6 @@ public class GalleryDbContext : DbContext
     public DbSet<Album> Albums { get; set; }
     public DbSet<Photo> Photos { get; set; }
     public DbSet<RefreshToken> RefreshTokens { get; set; }
+    public DbSet<TwoFactorCode> TwoFactorCodes { get; set; }
+    public DbSet<PromotionCode> PromotionCodes { get; set; }
 }
