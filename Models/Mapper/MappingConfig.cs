@@ -13,8 +13,8 @@ public class MappingConfig : Profile
         CreateMap<LoginVM, UserServiceDTO>();
         CreateMap<RefreshTokenVM, RefreshTokenServiceDTO>();
 
-        CreateMap<Photo, PhotoDTO>();
-        CreateMap<AlbumDto, Album>();
+        CreateMap<Photo, PhotoDTO>().ReverseMap();
+        CreateMap<AlbumDto, Album>().ReverseMap();
         CreateMap<UserServiceDTO, User>().ReverseMap();
     }
 }

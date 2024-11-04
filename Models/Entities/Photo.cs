@@ -6,5 +6,5 @@ public sealed class Photo
     public string FilePath { get; set; }
     public int UserId { get; set; }
     public User User { get; set; }
-    public ICollection<Album> Albums { get; set; }
+    public ICollection<Album> Albums { get; set; } = new List<Album>();
 }

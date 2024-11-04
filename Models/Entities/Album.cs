@@ -7,5 +7,5 @@ public sealed class Album
     public string CoverPath { get; set; }
     public int UserId { get; set; }
     public User User { get; set; }
-    public ICollection<Photo> Photos { get; set; }
+    public ICollection<Photo> Photos { get; set; } = new List<Photo>();
 }

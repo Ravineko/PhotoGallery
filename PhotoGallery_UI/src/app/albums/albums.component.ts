@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Album } from '../core/models/album.model';
 import { AlbumService } from '../core/services/album.service';
+import { environment } from '../environments/environments';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-albums',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './albums.component.html',
   styleUrl: './albums.component.css'
 })
@@ -16,7 +18,11 @@ export class AlbumsComponent implements OnInit{
 
   ngOnInit(): void {
     this.albumService.getAlbums().subscribe((data) => {
-      this.albums = data;
+      this.albums = data.map(album => ({
+        
+        ...album,
+        coverPath: `${environment.apiUrl}${album.coverPath}`
+      }));
     });
   }
 }

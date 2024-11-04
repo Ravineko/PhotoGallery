@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PhotoGallery.Models.ServiceDTOs;
 using PhotoGallery.Services.Interfaces;
 
 namespace PhotoGallery.Controllers;
 [ApiController]
 [Route("api/albums")]
-public class AlbumController : ControllerBase
+public class AlbumController : BaseController
 {
     private readonly IAlbumService _albumService;
 
@@ -46,7 +47,21 @@ public class AlbumController : ControllerBase
     public async Task<IActionResult> AddPhotoToAlbum(int albumId, int photoId)
     {
         await _albumService.AddPhotoToAlbumAsync(albumId, photoId);
-        return NoContent();
+        return Ok();
+    }
+
+    [Authorize]
+    [HttpGet("user")]
+    public async Task<IActionResult> GetAlbumsByUser()
+    {
+        var albums = await _albumService.GetAlbumsByUserAsync(UserId.Value);
+
+        if (albums == null || !albums.Any())
+        {
+            return NotFound("No albums found for this user.");
+        }
+
+        return Ok(albums);
     }
 }
 

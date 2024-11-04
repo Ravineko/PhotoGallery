@@ -77,4 +77,45 @@ public sealed class AlbumRepository : IAlbumRepository
             await _context.SaveChangesAsync();
         }
     }
+
+    public async Task AddPhotoToAlbumAsync(int albumId, int photoId)
+    {
+        var album = await _context.Albums
+             .Include(a => a.Photos)
+             .FirstOrDefaultAsync(a => a.Id == albumId);
+
+        if (album == null)
+        {
+            throw new Exception($"Album with ID {albumId} not found.");
+        }
+
+        var photo = await _context.Photos.FindAsync(photoId);
+        if (photo == null)
+        {
+            throw new Exception($"Photo with ID {photoId} not found.");
+        }
+
+        if (!album.Photos.Any(p => p.Id == photoId))
+        {
+            album.Photos.Add(photo);
+            await _context.SaveChangesAsync();
+            Console.WriteLine($"Photo with ID {photoId} added to album with ID {albumId}.");
+        }
+        else
+        {
+            Console.WriteLine($"Photo with ID {photoId} is already in album with ID {albumId}.");
+        }
+    }
+
+    public async Task<IEnumerable<Album>> GetAlbumsByUserAsync(int userId)
+    {
+        return await _context.Albums
+            .Where(album => album.UserId == userId)
+            .ToListAsync();
+    }
+
+    public async Task SaveChangesAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
 }

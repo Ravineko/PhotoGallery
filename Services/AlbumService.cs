@@ -45,17 +45,31 @@ public sealed class AlbumService : IAlbumService
 
     public async Task AddPhotoToAlbumAsync(int albumId, int photoId)
     {
-        var photoRepoModel = await _photoRepository.GetPhotoByIdAsync(photoId);
-        var albumRepoModel = await _albumRepository.GetAlbumByIdAsync(albumId);
+        var photo = await _photoRepository.GetPhotoByIdAsync(photoId);
+        var album = await _albumRepository.GetAlbumByIdAsync(albumId);
 
-        if (photoRepoModel != null && albumRepoModel != null)
+        if (photo != null && album != null)
         {
-            await _photoRepository.AddPhotoAsync(photoRepoModel);
-
-            if (albumRepoModel.CoverPath == null)
+            await _albumRepository.AddPhotoToAlbumAsync(album.Id, photo.Id);
+            var updatedAlbum = await _albumRepository.GetAlbumByIdAsync(album.Id);
+            if (updatedAlbum.Photos.Contains(photo))
             {
-                await _albumRepository.SetCoverPathAsync(albumId, photoRepoModel.FilePath);
+                Console.WriteLine("Photo successfully added to album.");
             }
+            else
+            {
+                Console.WriteLine("Photo was not added to album.");
+            }
+
+            await _albumRepository.SetCoverPathAsync(
+                album.Id, photo.FilePath);
+
+            await _albumRepository.SaveChangesAsync();
         }
+    }
+
+    public async Task<IEnumerable<Album>> GetAlbumsByUserAsync(int userId)
+    {
+        return await _albumRepository.GetAlbumsByUserAsync(userId);
     }
 }

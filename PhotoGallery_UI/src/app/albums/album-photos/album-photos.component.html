@@ -1,0 +1,22 @@
+<button (click)="openUploadModal()">Add Photo</button>
+<div class="photo-grid">
+  @for( photo of photos; track photo.id){
+  <div class="photo-item" (click)="openModal(photo.filePath)">
+    <img [src]="photo.filePath" alt="photo" />
+  </div>
+  }
+</div>
+
+@if(isModalOpen){
+<div class="modal">
+  <span class="close" (click)="closeModal()">&times;</span>
+  <img class="modal-content" [src]="selectedPhotoUrl" alt="Large photo" />
+</div>
+} @if(isUploadModalOpen){
+<div class="modal">
+  <span class="close" (click)="closeUploadModal()">&times;</span>
+  <h2>Upload Photo</h2>
+  <input type="file" (change)="onFileSelected($event)" />
+  <button (click)="uploadPhoto()">Upload</button>
+</div>
+}
